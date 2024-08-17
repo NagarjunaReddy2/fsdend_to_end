@@ -7,3 +7,8 @@ git init
 '''
 git add abc.txt 
 git add .'''
+
+''' create template file '''
+
+''' python setup.py'''
+
