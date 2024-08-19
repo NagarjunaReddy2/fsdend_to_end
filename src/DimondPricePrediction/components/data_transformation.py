@@ -12,7 +12,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder,StandardScaler
 
-from src.DimondPricePrediction.utils import save_object
+from src.DimondPricePrediction.utils.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
@@ -84,7 +84,7 @@ class DataTransformation:
             logging.info("Applying preprocessing object on training and testing datasets.")
 
             save_object(
-                file_path=self.data_transormation_config.preprocessor_obj_file_path
+                file_path=self.data_transormation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
             )
 
