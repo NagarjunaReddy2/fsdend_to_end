@@ -1,12 +1,8 @@
 FROM python:3.8-slim-buster
+WORKDIR /app
+COPY . /app
 
-WORKDIR /service
+RUN apt update -y
 
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-ENTRYPOINT [ "python3", "app.py" ]
-
+RUN apt-get update && pip install -r requirements.txt
+CMD ["python3", "app.py"]
