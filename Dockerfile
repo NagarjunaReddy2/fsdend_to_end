@@ -1,16 +1,8 @@
 FROM python:3.8-slim-buster
+WORKDIR /app
+COPY . /app
 
-# Set the working directory in the container
-WORKDIR /service
+RUN apt update -y
 
-# Copy the requirements file into the container
-COPY requirements.txt .
-
-# Install the dependencies
-RUN pip install -r requirements.txt
-
-# Copy the rest of the application code into the container
-COPY . ./
-
-# Define the command to run your application
-ENTRYPOINT [ "python3", "app.py" ]
+RUN apt-get update && pip install -r requirements.txt
+CMD ["python3", "app.py"]
